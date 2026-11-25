@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Trailhead Guide Console 向导工作台：今日行程、待确认预约与本周统计。">
+    <title>今日工作台 | Trailhead Guide Console</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳转到主要内容</a>
+
+<div class="app">
+    <aside class="sidebar">
+        <a class="brand" href="index.html">
+            <span class="brand-mark">T</span>
+            <span>Trailhead<small>Guide Console</small></span>
+        </a>
+        <nav class="side-nav" aria-label="工作台导航">
+            <a class="side-link" href="index.html" aria-current="page"><span class="ico">▦</span>今日工作台</a>
+            <a class="side-link" href="bookings.html"><span class="ico">▤</span>预约管理</a>
+            <a class="side-link" href="schedule.html"><span class="ico">▥</span>本周排班</a>
+        </nav>
+        <p class="side-foot">
+            演示数据保存在本机浏览器<br>
+            <a href="../routes/index.html">← 路线库</a><br>
+            <a href="../../cw2/index.html">← 主站 Trailhead</a>
+        </p>
+    </aside>
+
+    <main class="main" id="main">
+        <div class="topbar">
+            <div>
+                <h1>今日工作台</h1>
+                <p class="sub" id="todayLabel">—</p>
+            </div>
+            <div class="topbar-actions">
+                <button class="btn btn-outline" type="button" id="importBtn">导入主站预约</button>
+                <button class="btn btn-ghost" type="button" id="resetBtn">重置演示数据</button>
+            </div>
+        </div>
+
+        <section class="kpi-grid" aria-label="关键指标">
+            <div class="kpi">
+                <div class="label">今日团数</div>
+                <div class="value" id="kpiToday">0</div>
+                <div class="delta" id="kpiTodaySub">—</div>
+            </div>
+            <div class="kpi" id="kpiPendingCard">
+                <div class="label">待确认</div>
+                <div class="value" id="kpiPending">0</div>
+                <div class="delta" id="kpiPendingSub">—</div>
+            </div>
+            <div class="kpi">
+                <div class="label">未来 7 天人数</div>
+                <div class="value" id="kpiWeek">0</div>
+                <div class="delta" id="kpiWeekSub">—</div>
+            </div>
+            <div class="kpi">
+                <div class="label">完成率</div>
+                <div class="value" id="kpiDone">0%</div>
+                <div class="delta" id="kpiDoneSub">—</div>
+            </div>
+        </section>
+
+        <div class="two-col">
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>今日日程</h2>
+                    <a class="btn btn-ghost btn-sm" href="schedule.html">看整周 →</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="timeline" id="todayList"></ul>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>待确认预约</h2>
+                    <a class="btn btn-ghost btn-sm" href="bookings.html">全部预约 →</a>
+                </div>
+                <div class="panel-body">
+                    <ul class="todo-list" id="pendingList"></ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="panel">
+            <div class="panel-head">
+                <h2>最近活动</h2>
+                <span class="sub" style="font-size:0.82rem;color:var(--color-muted);">按提交时间倒序，最近 5 条</span>
+            </div>
+            <div class="panel-body">
+                <ul class="timeline compact" id="recentList"></ul>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/store.js"></script>
+<script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
